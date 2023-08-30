@@ -4,7 +4,7 @@ const axios = require('axios')
 
 // Config Defaults Axios dengan Detail Akun Rajaongkir
 axios.defaults.baseURL = 'https://api.rajaongkir.com/starter'
-axios.defaults.headers.common['key'] = '698ce5223ca2389375181b96000221ed'
+axios.defaults.headers.common['key'] = 'ffbbdb88326a25452e95f95ae4141a72'
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 // Router GET province
@@ -38,9 +38,11 @@ router.get('/ongkos/:asal/:tujuan/:berat/:kurir', (req, res) => {
 router.post('/login', (req, res) => {
   const form = req.body;
   if (form.username == 'admin' && form.password == 'admin') {
-    res.send({ status: 'Berhasil', code: 200, token: 'token-admin' });
+    res.send({ status: 'Berhasil', code: 200, token: 'token-admin', user: form.username });
   } else {
-    res.send({ status: 'Gagal', code: 500 });
+    res.status(400).send({
+      message: 'Login Gagal!'
+    });
   }
 });
 
