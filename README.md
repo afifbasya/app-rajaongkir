@@ -6,6 +6,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Untuk Frontend (React) jalankan :
 
+### `npm install`
+
 ### `npm start`
 
 Untuk Backend API (express.js) jalankan :
